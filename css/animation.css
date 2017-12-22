@@ -1,0 +1,104 @@
+@keyframes moveLoop{
+	0%{
+		opacity: 0;
+		transform: translateY(0px);
+		}
+	50%{
+		opacity: 1;
+		transform: translateY(-25px)
+	}	
+	100%{
+		opacity: 0;
+		transform: translateY(-50px);
+		}
+}
+.moveLoop{
+	animation: moveLoop 1s infinite ease;
+}
+
+ 
+@keyframes roate{
+	from{}
+	to{transform: rotateY(1440deg);}
+}
+.roate{
+	animation: roate 1s ease;
+}
+
+@keyframes show{
+	from{width: 0px;height: 0px;}
+	to{}
+}
+.show{
+	animation: show 3s ease;
+}
+
+//动画一
+@keyframes moveFromLeft{
+	from{transform: translateX(200%);opacity: 0;}
+	to{}
+}
+.leftToRight{
+	animation: moveFromLeft 2s ease;
+}
+@keyframes moveFromRight{
+	from{transform: translateX(-100%);opacity: 0;}
+	to{}
+}
+.rightToLeft{
+	animation: moveFromRight 2s ease;
+}
+
+
+
+.pt-page-moveToTop {
+	-webkit-animation: moveToTop .6s ease both;
+	animation: moveToTop .6s ease both;
+}
+
+.pt-page-moveFromTop {
+	-webkit-animation: moveFromTop .6s ease both;
+	animation: moveFromTop .6s ease both;
+}
+
+.pt-page-moveToBottom {
+	-webkit-animation: moveToBottom .6s ease both;
+	animation: moveToBottom .6s ease both;
+}
+
+.pt-page-moveFromBottom {
+	-webkit-animation: moveFromBottom .6s ease both;
+	animation: moveFromBottom .6s ease both;
+}
+@-webkit-keyframes moveToTop {
+	from { }
+	to { -webkit-transform: translateY(-100%) scaleX(.8); }
+}
+@keyframes moveToTop {
+	from { }
+	to { -webkit-transform: translateY(-100%) scaleX(.8); transform: translateY(-100%) scaleX(.8); }
+}
+
+@-webkit-keyframes moveFromTop {
+	from { -webkit-transform: translateY(-100%); }
+}
+@keyframes moveFromTop {
+	from { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+}
+
+@-webkit-keyframes moveToBottom {
+	from { }
+	to { -webkit-transform: translateY(100%) scaleX(.8); }
+}
+@keyframes moveToBottom {
+	from { }
+	to { -webkit-transform: translateY(100%) scaleX(.8); transform: translateY(100%) scaleX(.8); }
+}
+
+@-webkit-keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); }
+}
+@keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+}
+

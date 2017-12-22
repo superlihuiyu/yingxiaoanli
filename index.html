@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/animation.css"/>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body,html{
+				height: 100%;
+				overflow: hidden;
+			}
+			li{
+				list-style: none;
+			}
+			.hide{
+				display: none;
+			}
+			.page-show{
+				display: block;
+				z-index: 3;
+			}
+			#wrap{
+				height: 100%;
+				overflow: hidden;
+			}
+			#wrap>ul{
+				position: relative;
+				height: 100%;
+			}
+			#wrap>ul>li{
+				height: 100%;
+				width: 100%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: -45px 0px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#wrap>ul>li:nth-child(1){
+				background-image: url(img/b.png);	
+			}
+			#wrap>ul>li:nth-child(2){
+				background-image: url(img/c.png);
+			}
+			#wrap>ul>li:nth-child(3){
+				background-image: url(img/d.png);
+			}
+			#wrap>ul>li:nth-child(4){
+				background-image: url(img/e.png);
+			}
+			#wrap>ul>li:nth-child(5){
+				background-image: url(img/f.png);
+			}
+			
+			#wrap > canvas{
+				position: absolute;
+				left: 0;
+				top: 0;
+				transition: 1s opacity;
+				z-index: 9;
+			}
+			#wrap>ul>li:nth-child(1)>ul{
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				margin-left: -33%;
+				margin-bottom: 50px;
+			}
+			#wrap>ul>li:nth-child(1)>ul>li>p{
+				color: white;
+				font-size: 18px;
+			}
+		    #wrap>.arrow{
+		    	z-index: 8;
+		    	width:45px;
+		    	height: 30px;
+		    	position: fixed;
+		    	left: 50%;
+		    	bottom: 0;
+		    	margin-left:-23px ;
+		    	
+		    }
+		    #wrap>.arrow>img{
+		    	width: 45px;
+		    }
+		    
+		    
+		    #wrap>ul>li:nth-child(2)>ul{
+		    	position: absolute;
+		    	left: -23px;
+		    	right: 0px;
+		    	top:83px;
+		    	bottom: 0;
+		    	margin:auto;
+		    	width: 50px;
+		    	height: 50px;
+		    	
+		    }
+		    #wrap>ul>li:nth-child(2)>ul>li{
+		    	position: absolute;
+		    	width: 50px;
+		    	height: 50px;
+		    	
+		    }
+		    #wrap>ul>li:nth-child(3)>ul{
+		    	position: absolute;
+		    	left: 50%;
+		    	bottom: 120px;
+		    	margin-left:-150px ;
+		    	width: 300px;
+		    	height: 140px;
+		    	background: url(img/d1.png);
+		    	background-size: cover;
+		    }
+		   
+		    
+		    #wrap>ul>li:nth-child(4)>ul>li{
+		    	position: absolute;
+		    	font-size: 10px;
+		    	color: white;
+		    	box-shadow: 0 0 15px #FFF;
+		    	border-radius: 5px;
+		    	word-wrap: break-word;
+		    	overflow: hidden;
+		    }
+		    #wrap>ul>li:nth-child(4)>ul>li:nth-child(1){
+		    	width: 140px;
+		    	height: 130px;
+		    	left: 4%;
+		    	top: 15%;
+		    }
+		    #wrap>ul>li:nth-child(4)>ul>li:nth-child(2){
+		    	width: 160px;
+		    	height: 90px;
+		    	left: 50%;
+		    	top: 19%;
+		    }
+		    #wrap>ul>li:nth-child(4)>ul>li:nth-child(3){
+		    	width:60px;
+		    	height: 160px;
+		    	left: 78%;
+		    	top: 40%;
+		    }
+		    
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<canvas width="0" height="0"></canvas>
+			<ul>
+				<li class="img-0 page-show">
+					<ul>
+						<li class="leftToRight"><p>曾经作为前端开发的你<br />解决PC兼容性而焦头烂额</p></li>
+						<li class="rightToLeft"><p>而今<br />移动端H5应用疯狂来袭</p></li>	
+						<li class="leftToRight"><p>你是否已准备充分<br />学习新技能</p></li>
+						<li class="rightToLeft"><p>曾破茧成蝶、重获新生</p></li>
+					</ul>
+				</li>
+				<li class="img-1 hide">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</li>
+				<li class="img-2 hide">
+					<ul class='roate'></ul>
+				</li>
+				<li class="img-3 hide">
+					<ul>
+						<li class="show">transform  transition  rotate  scale  translate  keyframes animation  webkitTransitionEnd webkitAnimationIteration elapsedTime perspective…</li>
+						<li class="show">drawImage lineWidth  strokeStyle  lineCap  globalCompositeOperation  moveTo   lineTo  stroke  arc  getImageData…</li>
+						<li class="show">audio autoplay loop  paused  play  pause…</li>
+					</ul>
+				</li>
+				<li class="img-4 hide"></li>
+	
+			</ul>
+			<div class="arrow moveLoop">
+				<img src="img/arr.png"/>
+			</div>
+		</div>
+	</body>
+	<script src="js/lhy.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		document.addEventListener('touchmove',function(ev){
+				ev.preventDefault();
+		});
+		(function(){
+				var styleNode = document.createElement("style");
+				var width= document.documentElement.clientWidth/16;
+				//16rem最终渲染的px值为布局视口所代表的值
+				styleNode.innerHTML="html{font-size:"+width+"px!important}"
+				//根标签的fontsize变为布局视口所代表的值
+				document.head.appendChild(styleNode);
+		})();
+		window.onload = function (){
+			function start(){
+				
+				var listNode=document.querySelectorAll('.img-1>ul>li');
+				var r=130;
+				var move=true;
+				for (var i=0;i<listNode.length;i++) {
+					console.log(listNode[i])
+					listNode[i].style.background="url(img/c"+(i+1)+".png)"
+					listNode[i].style.backgroundSize='cover'
+				}
+
+				var last = -1;
+				var now = 0;
+				var direction = {up:1,down:2};
+				var lastpoint=0;
+				var isMoving = false;
+				var wrap=document.querySelector('#wrap>ul');
+				wrap.addEventListener('touchstart',function(ev){
+					ev=ev||event;				
+					var touchC = ev.changedTouches[0];
+					lastpoint=touchC.clientY;
+					
+				});
+				wrap.addEventListener('touchmove',function(ev){
+					ev=ev||event;				
+					var touchC = ev.changedTouches[0];
+					var nowpoint=touchC.clientY;
+					//移动的差值
+					var endleng=nowpoint-lastpoint
+					//向上滑动
+					if(endleng<-20){
+						if(isMoving){
+							return;
+						}
+						//将滑动前手指作用的页面的坐标赋值给滑动之后上一个页面
+				        last = now
+				        //判断滑动的条件  滑动所需参数的设置
+						if(last!=4){
+							now= last+1;				
+							pageMove(direction.up);
+							
+						}
+						
+
+					}
+					//向下滑动
+					if(endleng>20){
+						if(isMoving){
+							return;
+						}
+						//将滑动前手指作用的页面的坐标赋值给滑动之后上一个页面
+						last = now;
+						//判断滑动的条件  滑动所需参数的设置
+						if(last!=0){
+							now= last- 1;
+							pageMove(direction.down);
+							
+						}
+						
+					}
+						
+				});
+				wrap.addEventListener('touchend',function(ev){
+					ev=ev||event;				
+					var touchC = ev.changedTouches[0];
+
+				})
+				
+				
+				
+				function pageMove(dir) {
+					//初始化页面类
+					var outClass = '';
+					var inClass = '';
+					//匹配方向
+					switch (dir){
+						case direction.up:
+							outClass = 'pt-page-moveToTop';
+							inClass = 'pt-page-moveFromBottom';
+							break;
+						case direction.down:
+							outClass = 'pt-page-moveToBottom';
+							inClass = 'pt-page-moveFromTop';
+							break;
+					}
+					//为页面添加动画开始的类
+					
+					var pageList=document.querySelectorAll('#wrap>ul>li');
+					tools.removeClass(pageList[now],'hide');
+			
+					tools.addClass(pageList[last],outClass);
+					tools.addClass(pageList[now],inClass);
+					isMoving = true;
+//					if(last==3){
+//						now=0;
+//						last=-1;
+//						pageMove(direction.down);
+//					}
+					//处理动画完成时页面的类
+					setTimeout(function () {
+						tools.addClass(pageList[last],'hide');
+						tools.removeClass(pageList[last],outClass);
+						tools.removeClass(pageList[last],'page-show');
+						tools.addClass(pageList[last],'hide');
+			
+						tools.addClass(pageList[now],'page-show');
+						tools.removeClass(pageList[now],inClass);
+						tools.removeClass(pageList[now],'hide');
+						
+						console.log(now,last);
+						if(last=1){
+							pageList[last].addEventListener('touchstart',function(){
+								if (move){
+									for (var i=0;i<listNode.length;i++) {
+										listNode[i].style.transform="rotate(-1440deg)";
+										listNode[i].style.transition='1s';
+										listNode[i].style.left=count(r,i*360/(listNode.length)).left+"px";
+										listNode[i].style.top=count(r,i*360/(listNode.length)).top+"px";
+									}
+								}else{
+								
+									for (var i=0;i<listNode.length;i++) {
+										listNode[i].style.transform="rotate(0deg)";
+										listNode[i].style.transition='.1s';
+										listNode[i].style.left="0px";
+										listNode[i].style.top="0px";
+									}
+								}
+									move=!move
+							})
+						}
+						isMoving = false;
+					},600);
+				}	
+			
+					//计算偏移量left top;
+					function count(r,deg){
+						var left = -r*Math.sin(deg*Math.PI/180);
+						var top = -r*Math.cos(deg*Math.PI/180);
+						return {left:left,top:top}
+					}
+			}
+			
+				
+			
+			var oc = document.querySelector("#wrap>canvas");
+			oc.width = document.documentElement.clientWidth;
+			oc.height = document.documentElement.clientHeight;
+			
+			
+			
+			if(oc.getContext){
+				var ctx = oc.getContext("2d");
+				
+				var img = new Image();
+				img.src = "img/a.png"
+				img.onload = function (){
+					draw(this);
+				}
+				
+				function draw(img){
+					ctx.drawImage(img,0,0,oc.width,oc.height);
+					
+					oc.addEventListener("touchstart",function(ev){
+						ev = ev||event;
+						//拿到一根手指
+						var touchC = ev.changedTouches[0];
+						var x = touchC.clientX - oc.offsetLeft;
+						var y = touchC.clientY - oc.offsetTop;
+
+						ctx.globalCompositeOperation="destination-out";
+						ctx.lineWidth=80;
+						ctx.lineCap ="round"
+						ctx.beginPath();
+						ctx.moveTo(x,y);
+						ctx.lineTo(x+1,y+1);
+						ctx.stroke();
+						
+						
+						
+					})
+					
+					oc.addEventListener("touchmove",function(ev){
+						ev = ev||event;
+						var touchC = ev.changedTouches[0];
+						var x = touchC.clientX - oc.offsetLeft;
+						var y = touchC.clientY - oc.offsetTop;
+						
+						ctx.globalCompositeOperation="destination-out";
+						ctx.lineTo(x,y);
+						ctx.stroke();
+					})
+					
+					oc.addEventListener("touchend",function(){
+						var flag = 0;
+						var imgdata = ctx.getImageData(0,0,oc.width,oc.height);
+						var alldata = imgdata.width*imgdata.height;
+						for (var i = 0 ; i<alldata;i++) {
+							if(imgdata.data[4*i+3]==0){
+								flag++;	
+							}
+							
+						}
+						if(flag>alldata/2){
+								oc.style.opacity = 0;
+						}
+					})
+					
+					//过渡完成后，
+					oc.addEventListener("transitionend",function(){
+						this.remove();//自杀；
+						start();
+					})
+				}
+				
+				
+			}
+
+		}
+	</script>
+</html>
